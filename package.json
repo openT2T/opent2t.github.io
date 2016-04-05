@@ -17,12 +17,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/openT2T/website.git"
+        "url": "git+https://github.com/openT2T/opent2t.github.io.git"
     },
     "author": "",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/openT2T/website/issues"
+        "url": "https://github.com/openT2T/opent2t.github.io/issues"
     },
-    "homepage": "https://github.com/openT2T/website#readme"
+    "homepage": "https://github.com/openT2T/opent2t.github.io#readme"
 }
