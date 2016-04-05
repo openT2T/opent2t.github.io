@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="jumbotron">
+        <h2>Getting Started Step 4</h2>
+        <p class="lead">Using Onboarding Modules in Node</p>
+    </div>
+    <p class="text-right">
+        [ <a href="https://github.com/openT2T/website/edit/master/gettingStarted/step4.html">
+            Improve this document
+        </a> ]
+    </p>
+    <div>
+        <p>
+            Next, let's install the onboarding module for wink hub. This is published to npm, and the source lives in the
+            <a href="https://github.com/opent2t/onboarding">onboarding repo</a> if you want to check it out:
+        </p>
+        <code>
+            $ npm install opent2t-onboarding-winkhub
+        </code>
+        <p>
+            <br/> Now let's run the test script included with the onboarding module for wink hub, passing in the same parameters
+            specified in manifest.xml. Onboarding will ask for some information like the Wink API client ID, secret, and
+            user credentials. You need to get a client ID and secret from Wink, as indicated earlier, and will need to create
+            user credentials in the Wink app.
+        </p>
+        <code>
+            $ node node_modules/opent2t-onboarding-winkhub/test.js -n "Wink Light Bulb" -f "light_bulb_id" 
+        </code>
+
+        <p>
+            <br/> Here's some sample output from the onboarding module.
+        </p>
+
+        <blockquote>
+            <p>
+                Onboarding device : Wink Light Bulb
+                <br/> idKeyFilter : light_bulb_id
+                <br/> Please enter credentials for the Wink API:
+                <br/> ? Wink API Client ID: --MASKED (get this from Wink)--
+                <br/> ? Wink API Client Secret: --MASKED (get this from Wink)--
+                <br/> ? Wink User Name (create this in the Wink app): --MASKED--
+                <br/> ? Wink Password (create this in the Wink app): --MASKED--
+                <br/> Thanks! Signing you in to Wink.
+                <br/> Signed in to WINK.
+                <br/> ? Which device do you want to onboard?
+                <br/> GE Link Bulb (1559737)
+                <br/> >GE Link Bulb (3559678)
+                <br/> GE Link Bulb (5523425)
+                <br/> access_token : abcc2f4ds55asd531ec78cc08b236gd
+                <br/> id : 3559678
+                <br/> message : All done. Happy coding!
+                <br/>
+            </p>
+        </blockquote>
+        <p>
+            Once signed in, onboarding then lets the user select a light and then prints out the access token and id we need to actually
+            communicate with the Wink API in the translator we will write. Let's save this information somewhere, since we
+            will need it to run the translator.
+        </p>
+    </div>
+    <nav>
+        <ul class="pager">
+            <li class="previous"><a href="/#/gettingStartedStep3"><span aria-hidden="true">&larr;</span> Step 3</a></li>
+            <li><a href="/#/gettingStarted">Getting Started</a></li>
+            <li class="next"><a href="/#/gettingStartedStep5">Step 5 <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+    </nav>
+</div>

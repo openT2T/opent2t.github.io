@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="jumbotron">
+        <h2>Getting Started Step 1</h2>
+        <p class="lead">Set up your environment (PC or Mac)</p>
+    </div>
+    <p class="text-right">
+        [ <a href="https://github.com/openT2T/website/edit/master/gettingStarted/step1.html">
+            Improve this document
+        </a> ]
+    </p>
+    <div>
+        <p>
+            We are using a pretty standard node.js development setup for developing and testing translators. Most of you are probably
+            already familiar with all this, so we will go quickly here.
+        </p>
+        <ul>
+            <li>
+                <b>Install Node:</b>
+                <a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a>. If prompted, make sure you
+                select the option to install npm, the node package manager.
+            </li>
+            <li>
+                <b>Install Git:</b>
+                <a href="http://git-scm.com/downloads">http://git-scm.com/downloads</a>. All our source is on github, so
+                this will come in handy.</li>
+            <li>
+                <b>Install your favorite IDE:</b> One good option is <a href="https://code.visualstudio.com/">Visual Studio Code</a>.
+                It is really light weight, and available for PC or Mac.</li>
+        </ul>
+
+        <p>
+            Great. Now let's clone some repos so we can look at code. You will find all our repos on GitHub at <a href="http://github.com/openT2T">http://github.com/openT2T</a>.
+            We recommend that you put all these repos in the same directory.
+        </p>
+
+        <code>
+            $ mkdir openT2T <br/>
+            $ cd openT2T <br/>
+            $ git clone https://github.com/openT2T/translators.git <br/>
+            $ git clone https://github.com/openT2T/onboarding.git <br/>
+            $ git clone https://github.com/openT2T/voice.git <br/>
+            $ git clone https://github.com/openT2T/console.git <br/>
+        </code>
+
+        <br/>
+        <p>
+            You may notice that there are other repos under http://github.com/openT2T. We will get to those later.
+        </p>
+
+        <p>
+            To play with translators during development on Windows, we will use the IoT explorer for AllJoyn. This is available in the
+            Windows store as a free download here: <a href="https://www.microsoft.com/store/apps/9nblggh6gpxl">https://www.microsoft.com/store/apps/9nblggh6gpxl</a>.
+            For other platforms, we have some sample apps available in the <a href="https://github.com/opent2t/sampleapps">sampleapps repo</a>.
+        </p>
+
+        <p>
+            In order for IoT explorer for AllJoyn to work with devices running on your local Windows machine, you need to set a loopback
+            exception. Here's how you do that:
+        </p>
+        <ul>
+            <li>
+                Download the Loopback Exemption Manager from <a href="http://loopback.codeplex.com/">http://loopback.codeplex.com/</a>                and run it.
+            </li>
+            <li>
+                Find the Alljoyn explorer app and give it a loopback exception.
+            </li>
+        </ul>
+        <p>Great. Now you're all set up to write some translators.</p>
+    </div>
+    <nav>
+        <ul class="pager">
+            <li><a href="/#/gettingStarted">Getting Started</a></li>
+            <li class="next"><a href="/#/gettingStartedStep2">Step 2 <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+    </nav>
+</div>

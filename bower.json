@@ -1,0 +1,15 @@
+{
+    "name": "Open Translators to things",
+    "author": "",
+    "private": true,
+    "devDependencies": {},
+    "dependencies": {
+        "angular": "~1.4.0",
+        "angular-route": "~1.4.0",
+        "angular-loader": "~1.4.0",
+        "angular-mocks": "~1.4.0",
+        "bootstrap": "^3.3.6",
+        "html5-boilerplate": "~5.2.0",
+        "jquery": "2.2.2"
+    }
+}

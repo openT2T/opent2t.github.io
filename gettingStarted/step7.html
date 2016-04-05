@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="jumbotron">
+        <h2>Getting Started Step 7</h2>
+        <p class="lead">Running a Translator in the Cloud</p>
+    </div>
+    <p class="text-right">
+        [ <a href="https://github.com/openT2T/website/edit/master/gettingStarted/step7.html">
+            Improve this document
+        </a> ]
+    </p>
+    <div>
+        <p>
+            Finally, since this is just node you can also run this translator in the cloud. Check out our cloud repo where we have common
+            code for a cloud-based rule engine that runs these translators. There are also some sample cloud apps that you
+            can check out in the cloud repo. For translators that don't have any local dependencies, running in the cloud
+            opens up entirely new scenarios, e.g. headless operation based on user behaviors and triggers.
+        </p>
+        <p>For cloud scenarios there are 3 applications that show how deviceTranslator files can make easier to build cloud
+            solutions that needs to handle devices that use different interfaces and protocols.
+            <ul>
+                <li><a href="https://github.com/openT2T/cloud">Polling-based rule engine</a></li>
+                <li><a href="https://github.com/openT2T/sampleapps/tree/master/azure">Azure IoTHub Sample</a></li>
+                <li><a href="https://github.com/openT2T/sampleapps/tree/master/aws">AWS Kinesis Sample</a></li>
+            </ul>
+            <h3>How to run the apps</h3>
+            <p>The apps are self-contained node.js app. You can deploy the apps on Azure/AWS (IotHub Sample/AWS Kinesis Sample)
+                or any other cloud infrastructure that supports running node.js applications. Once the application is deployed,
+                make sure to run 'npm install' in order to download all dependencies.
+            </p>
+            <p>Please refer to the README.md file for more details on the app structure and configuration files.</p>
+            <h3>Azure IoTHub Sample</h3>
+            <p>The sampleapps repo contains a sample application that uses Azure IoTHub to connect devices to a node.js app
+                that runs a simple rule engine. The sample is designed to show how a 'push' model based on Azure IoTHub can
+                leverage openT2T to abstract device specific details and provide a standardized interface that can make writing
+                simple automation scripts much simpler. In this case the app shows a simple rule engine that consumes events
+                submitted to the IoTHub by different devices. Azure IoTHub is a fully managed solution that is used to managed
+                the data ingestion and device management part of the process, while openT2T offers the ability to write code
+                that is require to handle every single time of device.
+            </p>
+            <p>Please refer to the README.md file in the repo for more details on how to use the app the various configuration
+                files.</p>
+            <h3>AWS Kinesis Sample</h3>
+            <p>
+                The sampleapps repo contains a sample app that uses AWS Kinesis to connect devices to a node.js app that runs a simple rule
+                engine. The app provides the same functionalities available in the Azure IoTHub Sample, it just uses a different
+                'ingestion pipeline (in this case based on AWS Kinesis)'
+            </p>
+            <p>Please refer to the README.md file in the repo for more details on how to use the app the various configuration
+                files.</p>
+    </div>
+    <nav>
+        <ul class="pager">
+            <li class="previous"><a href="/#/gettingStartedStep6"><span aria-hidden="true">&larr;</span> Step 6</a></li>
+            <li><a href="/#/gettingStarted">Getting Started</a></li>
+        </ul>
+    </nav>
+</div>

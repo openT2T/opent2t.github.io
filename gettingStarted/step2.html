@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="jumbotron">
+        <h2>Getting Started Step 2</h2>
+        <p class="lead">Introduction to Translators</p>
+    </div>
+    <p class="text-right">
+        [ <a href="https://github.com/openT2T/website/edit/master/gettingStarted/step2.html">
+            Improve this document
+        </a> ]
+    </p>
+    <div>
+        <p>
+            Let's discuss some basic concepts about translators. A translator does exactly what you would expect: it translates between
+            a schema (e.g. a generic concept of a lightbulb) and a specific thing or piece of hardware (e.g. a specific lightbulb
+            that you can communicate to via a particular protocol or bus). The schema is exposed to app developers who no
+            longer need to worry about how to communicate with that specific lightbulb.
+        </p>
+        <p>
+            For those who learn better by example, we have some translators in the <a href="https://github.com/opent2t/translators">translators repo</a>            that you can go look at. We suggest starting with something really simple like the <a href="https://github.com/openT2T/translators/tree/master/org.OpenT2T.Sample.SuperPopular.Lamp/Test%20Light/js">
+            Test Light Translator</a> which just does console logging instead of talking to a real device. You can find it
+            under the
+            <a href="https://github.com/openT2T/translators/tree/master/org.OpenT2T.Sample.SuperPopular.Lamp"> org.OpenT2T.Sample.SuperPopular.Lamp</a>            namespace, which corresponds to the schema for this translator.
+        </p>
+        <p>
+            Along with a README and a test script, you will see some other files in the translator:
+        </p>
+        <ul>
+            <li>
+                <b>package.json</b> We currently support translators written in node, so each translator has a package.json
+                file that lists its dependencies on other node modules, versioning information, etc.
+            </li>
+            <li>
+                <b>manifest.xml</b>
+                <ul>
+                    <li>This file defines the schema this translator is implementing, in this example org.OpenT2T.Sample.SuperPopular.Lamp.
+                        This name is intentionally tongue in cheek for now and intended to stress that this is just a sample.
+                        If you open the schema file, which is one level up in the tree, you will note that this is standard
+                        introspection XML and defines some basic methods that a lamp might have, e.g. turning it on or off,
+                        and setting its brightness.
+                    </li>
+                    <li>This file also defines the onboarding module for this translator. Onboarding is a generic term for any
+                        setup, pairing, auth, etc. that you typically need to do before you can communicate with a device.
+                        The runtime hosting the translator will provide an implementation for onboarding (e.g. some UX to
+                        take user input) and the metadata for what goes in and out of onboarding of a particular type is
+                        specified in the onboarding repo which we have also cloned locally. For the Test Light Translator
+                        translator you will notice that the "Manual" onboarding module is being passed some data that it
+                        could show to the user as they set up the device. Go check out at the "Manual" onboarding module
+                        that this translator is referring to in the onboarding repo. We will see some more complicated onboarding
+                        modules later, but for now just note that this is standard introspection XML, and the success signal
+                        describes what information is passed into the translator as a result of onboarding. We have provided
+                        some other sample onboarding modules and hope to add more with community participation.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>thingTranslator.js</b> This is a cross-platform node module that implements the schema. In this example,
+                you will see turnOn, turnOff, etc. which are methods defined in the schema and implemented here. The initDevice
+                method is special, and is called to initialize this translator with a device object that contains the results
+                of onboarding. Since we are using Manual onboarding for this translator, you will recall that there was a
+                token parameter that we can expect to exist in the props hash passed to initDevice, if onboarding was successful.
+            </li>
+        </ul>
+        <p>
+            In summary, a translator is something that runs after onboarding and implements a particular schema in node.js. Various onboarding
+            modules are implemented in the onboarding repo, and pass in context to the translator via the initDevice method,
+            e.g. any setup or auth information the translator needs to run.
+        </p>
+    </div>
+    <nav>
+        <ul class="pager">
+            <li class="previous"><a href="/#/gettingStartedStep1"><span aria-hidden="true">&larr;</span> Step 1</a></li>
+            <li><a href="/#/gettingStarted">Getting Started</a></li>
+            <li class="next"><a href="/#/gettingStartedStep3">Step 3 <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+    </nav>
+</div>

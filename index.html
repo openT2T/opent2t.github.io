@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="opent2t" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="opent2t" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="opent2t" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="opent2t" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="An Open Source project to translate common IoT schemas to specific hardware devices.">
+    <meta name="author" content="Open Translators to Things">
+
+    <title>Open Translators to Things</title>
+
+    <!-- frameworks -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/tether/dist/css/tether.min.css" rel="stylesheet">
+    <link href="bower_components/html5-boilerplate/dist/css/normalize.css" rel="stylesheet">
+    <link href="bower_components/html5-boilerplate/dist/css/main.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/styles/app.css" rel="stylesheet">
+    <link href="assets/styles/video.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <nav class="navbar navbar-fixed-top">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/#/">Open Translators to Things</a>
+        </div>
+    </nav>
+
+    <div ng-view autoscroll="true"></div>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">
+            <a href="http://go.microsoft.com/fwlink/?LinkId=248681" target="_self">Privacy &amp; cookies</a> -
+            <a href="http://go.microsoft.com/fwlink/?LinkId=206977" target="_self">Terms of use</a> -
+            <a href="http://go.microsoft.com/?linkid=9851308" target="_self">Trademarks</a> - &copy;
+            <script>
+                document.write(new Date().getFullYear());
+            </script> Microsoft
+        </span>
+        </div>
+    </footer>
+
+    <!-- frameworks -->
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- app scripts -->
+    <script src="app.js"></script>
+    <script src="home/homeCtrl.js"></script>
+    <script src="gettingStarted/gettingStartedCtrl.js"></script>
+    <script src="roadmap/roadmapCtrl.js"></script>
+</body>
+
+</html>

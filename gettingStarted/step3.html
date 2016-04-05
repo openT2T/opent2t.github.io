@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="jumbotron">
+        <h2>Getting Started Step 3</h2>
+        <p class="lead">Starting a Translator</p>
+    </div>
+    <p class="text-right">
+        [ <a href="https://github.com/openT2T/website/edit/master/gettingStarted/step3.html">
+            Improve this document
+        </a> ]
+    </p>
+    <div>
+        <p>
+            We will write a translator for Wink Light Bulbs. If you want to look at the end result, you can find it in the translators
+            repo. Here we will code it step by step.
+        </p>
+        <p>
+            Everything we are doing here applies to other hardware as well, but Wink has an easy to use API that we will use in our translator.
+            Here's what you need to follow along:
+        </p>
+        <ul>
+            <li>Wink Hub: <a href="http://wink.com">http://wink.com</a>
+
+                <li>Any light bulb supported by Wink, properly paired to the hub. We are using the GE Link bulb:
+                    <a href="http://www.gelinkbulbs.com/">http://www.gelinkbulbs.com/</a> which is a Zigbee device. Set up
+                    and make sure you can control the bulb from the Wink app, ensuring that it is properly paired with the
+                    Wink hub over Zigbee.
+                </li>
+
+                <li>Familiarize yourself with the Wink API as documented on: <a href="http://docs.wink.apiary.io/">http://docs.wink.apiary.io/</a>.
+                    You will notice that if you have an access token and device id, you can send a power state command to
+                    the light bulb to turn it on or off.
+                </li>
+                <li>
+                    You will need to contact Wink and get a Client ID and Client Secret, which are required to use the API, and are unique to
+                    each client.
+                </li>
+        </ul>
+
+        <p>
+            Armed with this information and setup, let's write the translator. We provide a handy yeoman starter that scaffolds out a
+            translator for you. You can read more about yeoman at yeoman.io.
+        </p>
+
+        <p>
+            First, install Yeoman and generator-opent2t using npm. Both prefer a global install.
+        </p>
+
+        <code>
+        $ npm install -g yo generator-opent2t 
+        </code>
+
+        <p>
+            <br/>Next, just use the generator to start your new translator.
+        </p>
+
+        <code>
+        $ yo opent2t 
+        </code>
+
+        <p>
+            <br/>The generator will ask you some questions, and stub out some code based on your answers. You can read more about
+            the generator, and look at the code, at https://github.com/openT2T/generator-opent2t.
+        </p>
+
+        <p>
+            The generated files will look very familiar to you since they are essentially the same as the Test Light Translator with
+            minor differences:
+        </p>
+
+        <ul>
+            <li>
+                <p>
+                    The Manifest.xml file references the "Wink Hub" onboarding module. You can go check it out in the onboarding repo, but the
+                    interesting part is that its success signal returns an access token and a device id. That's all we need
+                    to talk to devices in the Wink service. We do need to tell onboarding about what kind of Wink device
+                    we are trying to set up, so that it can filter down to light bulbs only. We do that by updating the generated
+                    manifest to add the following parameters:
+                </p>
+                <blockquote>
+                    <p>
+                        &lt;onboarding id="org.OpenT2T.Onboarding.WinkHub"&gt;
+                        <br/> &nbsp;&nbsp;&nbsp;&ltarg name="name" value="Wink Light Bulb" /&gt;
+                        <br/> &nbsp;&nbsp;&nbsp;&lt!-- when Wink devices are enumerated, only devices that have this id key are
+                        shown --&gt;
+                        <br/> &nbsp;&nbsp;&nbsp;&ltarg name="idKeyFilter" value="light_bulb_id" /&gt;
+                        <br/> &lt;/onboarding&gt;
+                        <br/>
+                    </p>
+                </blockquote>
+                <br/>
+            </li>
+
+            <li>The Wink Hub onboarding module implements getting the access token, enumerating devices connected to Wink, and
+                letting the user select one so that we have a device id. The translator just gets all this context information
+                in its initDevice method. We can run the Wink Hub onboarding module from the node command line to get the
+                access token as described in its README.
+            </li>
+        </ul>
+
+        <p>
+            You now have the starting point of your translator. You should move the generated files, with edits above, to the final place
+            where you want to commit your translator. Look at the directory structure of the translators repo for guidance,
+            for example all translators that implement a schema schema need to be in the directory corresponding to that
+            schema.
+        </p>
+    </div>
+    <nav>
+        <ul class="pager">
+            <li class="previous"><a href="/#/gettingStartedStep2"><span aria-hidden="true">&larr;</span> Step 2</a></li>
+            <li><a href="/#/gettingStarted">Getting Started</a></li>
+            <li class="next"><a href="/#/gettingStartedStep4">Step 4 <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+    </nav>
+</div>

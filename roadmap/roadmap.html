@@ -1,0 +1,123 @@
+<div class="container">
+    <div class="jumbotron">
+        <h2>Roadmap</h2>
+        <p class="lead">Alpha version on April 5, 2016. Participation Welcome!</p>
+    </div>
+    <p>
+        <dl>
+            <dt>
+                Translators
+             </dt>
+            <dd>
+                Repository of translators, grouped by translators written for a specific schema. The translator name is a unique string provided
+                by the manufacturer identifying a Thing.
+            </dd>
+            <blockquote>
+                <p>
+                    <b><i>Next steps:</i></b> We would love to work with the community to add new translators to the initial
+                    existing sample schemas, in order to support new Things and additional protocols.</li>
+                </p>
+            </blockquote>
+        </dl>
+        <dl>
+            <dt>
+                Console
+             </dt>
+            <dd>
+                On PCs/tablets/phones, developers use the console app as a runtime to communicate with and onboard actual Things. The console
+                app hosts the node.js process. When a Thing is on boarded, it is recognized by its unique identifier, its
+                translator loaded, and the Thing is exposed, through the AllJoyn bus, as an AllJoyn device supporting the
+                schema it is translated to.
+            </dd>
+            <blockquote>
+                <p>
+                    <b><i>Next steps:</i></b> We would love to work with the community to fully support Windows (starting
+                    with some bugs with the jxcore hosting in cordova), OS X support (works now in the node cli), finish Android
+                    (bridge and sample  done, need help finalizing the console app for Android, including hosting jxcore), iOS support, explore
+                    additional ways to host the runtime and to identify/build robust cross-platform libraries for the different
+                    protocol buses used to communicate with Things.</li>
+                </p>
+            </blockquote>
+        </dl>
+        <dl>
+            <dt>
+                Cloud
+             </dt>
+            <dd>
+                In the cloud, developers use the device schema to communicate to similar Things translated to that schema in a node.js process.
+                The alpha version contains JavaScript/Node common code that can work on any cloud environment that supports
+                node.js.
+            </dd>
+            <blockquote>
+                <p>
+                    <b><i>Next steps:</i></b> We would love to work with the community to support new Things and additional
+                    protocols (CoAP, MQTT) by adding new translators, running on the cloud, for cloud-connected Things or
+                    for Translators running on gateways (e.g. Arduino, home Hubs, others) to gateway-connected Things marshalled
+                    from the cloud.
+                </p>
+            </blockquote>
+        </dl>
+        <dl>
+            <dt>
+                CLI
+             </dt>
+            <dd>
+                Command line interface intended to onboard and communicate with actual Things and running the JavaScript translators.
+            </dd>
+            <blockquote>
+                <p>
+                    <b><i>Next steps:</i></b> We would love to work with the community to fully implement the CLI so that
+                    it becomes the tool developers use to run and test their Translators.
+                </p>
+            </blockquote>
+        </dl>
+        <dl>
+            <dt>
+                SampleApps
+             </dt>
+            <dd>
+                The alpha version contains sample apps for Windows UWP, Android, JavaScript/Node common cloud code (with Azure IoT Hub and
+                AWS Kinesis) and can be used a base for new real apps.
+            </dd>
+            <blockquote>
+                <p>
+                    <b><i>Next steps:</i></b> We would love to work with the community to add sample apps for other UI frameworks
+                    such as Xamarin, Cordova or Swift and for other clouds such as Google Cloud.
+                </p>
+            </blockquote>
+        </dl>
+        <dl>
+            <dt>
+                Voice
+             </dt>
+            <dd>
+                By adding voice files that can understand a specific schema, developers enable their favorite assistant to control all similar
+                things that are translated to that schema. The alpha version contains a few sample Cortana voice files.
+            </dd>
+            <blockquote>
+                <p>
+                    <b><i>Next steps:</i></b> We would love to work with the community to add more voice for different categories
+                    of things and to provide samples for other voice assistants such as Alexa and others.
+                </p>
+            </blockquote>
+        </dl>
+    </p>
+    <h2>How to get Involved</h4>
+    <p>
+        We want to invite developers to check out the alpha, view the vision and code demo videos, read the getting started guide, ask questions,
+        and contribute Translators for their favorite hardware to the project.
+    </p>
+    <p>
+        Participation is welcome! As an alpha project, we are actively developing based on this initial roadmap.
+        Keep in mind that this is not ready for production deployment yet.
+    </p>
+    
+    <p>
+        For general discussions around Open Translations to Things, please use this
+        <a href="http://www.opentranslationstothings.org/issues">issues list</a>.
+    </p>
+    <p>
+        For specific bugs and feedback, please use the issues list for 
+        each repo on <a href="http://www.github.com/openT2T">GitHub/OpenT2T</a>
+    </p>
+</div>

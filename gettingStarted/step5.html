@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="jumbotron">
+        <h2>Getting Started Step 5</h2>
+        <p class="lead">Writing and Testing a Translator in Node</p>
+    </div>
+    <p class="text-right">
+        [ <a href="https://github.com/openT2T/website/edit/master/gettingStarted/step5.html">
+            Improve this document
+        </a> ]
+    </p>
+    <div>
+        <p>
+            Let's write a simple test script which will allow us to pass onboarding information in to the translator as we code. We can
+            just copy the test.js script from the Test Light translator and modify it to suit our needs.
+        </p>
+        <p>
+            The test script just takes the result of onboarding from the command line, builds the device object, and initializes the
+            translator. It then calls some of the schema methods implemented by the translator, e.g. on and off. It depends
+            on the node module optimist, so let's add that as a dev dependency:
+        </p>
+
+        <code>
+        $ npm install optimist --save-dev
+        </code>
+
+        <p>
+            <br/> We need to modify the test script we copied from the Test Light translator to take the two parameters we received
+            from Wink Hub onboarding, and pass them to the initDevice method. This will be done by the runtime when this
+            translator runs for real. These are the parts you need to modify:
+        </p>
+        <blockquote>
+            <p>
+                var argv = require('optimist')
+                <br/> &nbsp;&nbsp;&nbsp;.usage('Usage: $0 -i [device Id] -a [access token]')
+                <br/> &nbsp;&nbsp;&nbsp;.demand(['i'])
+                <br/> &nbsp;&nbsp;&nbsp;.demand(['a'])
+                <br/> &nbsp;&nbsp;&nbsp;.argv;
+                <br/>
+                <br/> // device object used for testing purposes (this is normally populated by the runtime)
+                <br/> function Device(deviceId, accessToken) {
+                <br/> &nbsp;&nbsp;&nbsp;this.props = ' { "id": "' + deviceId + '", "access_token": "' + accessToken + '" }';
+                <br/> &nbsp;&nbsp;&nbsp;this.name = "Wink Light Bulb (Test)";
+                <br/> }
+                <br/>
+                <br/> var device = new Device(argv.i, argv.a);
+                <br/>
+            </p>
+        </blockquote>
+        <p>
+            We can now run the test script with the access token and device id we got from onboarding earlier, and see the results printed
+            out to the screen:
+        </p>
+        <code>
+            $ node test -i 3559678 -a abcc2f4ds55asd531ec78cc08b236gd 
+        </code>
+        <p>
+            <br/> This should result in console output indicating that the correct data is being passed in to the translator,
+            and all the translator methods are being called correctly. Now that we have everything scaffolded out, let's
+            write some code to talk to Wink in thingTranslator.js.
+        </p>
+        <p>
+            This is actually the simplest and most fun part. We are just calling a REST API from the node script, and now that we have
+            the access token and the device ID for our bulb in the Wink service, we can make some magic REST calls to set
+            its power state. You can look at the
+            <a href="https://github.com/openT2T/translators/blob/master/org.OpenT2T.Sample.SuperPopular.Lamp/Wink%20Light%20Bulb/js/thingTranslator.js">full implementation</a>            in the translators repo but it is a fun exercise to try and write this yourself, using the Wink API documentation
+            as reference.
+        </p>
+
+        <p>
+            Now, when you run the test script, if all goes well, you should actually see your bulb turn on and off per the test sequence
+            defined in your test.js script. Voila!
+        </p>
+
+        <code>
+            $ node test -i 3559678 -a abcc2f4ds55asd531ec78cc08b236gd
+        </code>
+    </div>
+    <nav>
+        <ul class="pager">
+            <li class="previous"><a href="/#/gettingStartedStep4"><span aria-hidden="true">&larr;</span> Step 4</a></li>
+            <li><a href="/#/gettingStarted">Getting Started</a></li>
+            <li class="next"><a href="/#/gettingStartedStep6">Step 6 <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+    </nav>
+</div>

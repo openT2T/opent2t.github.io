@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="jumbotron">
+        <h2>Getting Started Step 6</h2>
+        <p class="lead">Running a Translator on the AllJoyn Bus</p>
+    </div>
+    <p class="text-right">
+        [ <a href="https://github.com/openT2T/website/edit/master/gettingStarted/step6.html">
+            Improve this document
+        </a> ]
+    </p>
+    <div>
+        <p>
+            Run the IoT explorer for AllJoyn on a PC, and notice that is tarts listening for announcements on the AllJoyn bus. Next,
+            run the console project that we cloned earlier, following the build instructions in its README. This is a developer
+            focused cross platform cordova app built with the ionic framework and it implements some Wink onboarding UX.
+            Let's onboard the Wink Light we just implemented via this app, which does everything we just did in node but
+            in addition it will also initialize the OpenT2T bridge with the translator for this device.
+        </p>
+
+        <p>
+            Now, we can see the Wink Light we just implemented in the IoT explorer for AllJoyn, exposing the standard lamp schema we
+            implemented, and can turn the light on and off from there. Any app developers who code to this schema on the
+            AllJoyn bus no longer need to worry about the details of what bulb implementation is hiding behind it.
+        </p>
+
+        <p>
+            Next, let's see our translator in action with one of our sample apps instead of IoT explorer for AllJoyn. Clone the sampleapps
+            repo, and find the UWP lamp sample. This sample kicks things up a notch by using the voice files that live in
+            the voice repo to get some Cortana integration. Neither the code, nor the voice files, are written specifically
+            for the GE Link light bulb. They are written to the schema and will work with any bulb that implements it. Try
+            using some of the commands in the voice file for light bulbs with this sample running.
+        </p>
+    </div>
+    <nav>
+        <ul class="pager">
+            <li class="previous"><a href="/#/gettingStartedStep5"><span aria-hidden="true">&larr;</span> Step 5</a></li>
+            <li><a href="/#/gettingStarted">Getting Started</a></li>
+            <li class="next"><a href="/#/gettingStartedStep7">Step 7 <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+    </nav>
+</div>
