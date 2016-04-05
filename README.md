@@ -24,7 +24,7 @@ Next, clone this repo to your local machine to get started. Navigate to the dire
 to locally, then run:
 
 ```bash
-$ git clone https://github.com/opent2t/website.git
+$ git clone https://github.com/opent2t/opent2t.github.io.git
 ```
 
 ## Get Dev Dependencies
