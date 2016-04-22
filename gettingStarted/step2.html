@@ -15,6 +15,12 @@
             that you can communicate to via a particular protocol or bus). The schema is exposed to app developers who no
             longer need to worry about how to communicate with that specific lightbulb.
         </p>
+        <div class="row" align="center">
+            <br />
+            <img src="assets/images/TranslatorHighLevel.png" class="img-fluid pillar-image" /><br />
+            <h5><b>High level Translator diagram</b></h5>
+            <br />
+        </div>
         <p>
             For those who learn better by example, we have some translators in the <a href="https://github.com/opent2t/translators">translators repo</a>            that you can go look at. We suggest starting with something really simple like the <a href="https://github.com/openT2T/translators/tree/master/org.OpenT2T.Sample.SuperPopular.Lamp/Test%20Light/js">
             Test Light Translator</a> which just does console logging instead of talking to a real device. You can find it
@@ -28,6 +34,22 @@
             <li>
                 <b>package.json</b> We currently support translators written in node, so each translator has a package.json
                 file that lists its dependencies on other node modules, versioning information, etc.
+<pre><code>
+{
+    "name": "opent2t-translator-test-light",
+    "version": "1.0.0",
+    "description": "",
+    "dependencies": {},
+    "devDependencies": {
+        "async": "~1.5.2",
+        "optimist": "0.6.1",
+        "opent2t-onboarding-manual": "*"
+    },
+    "author": "",
+    "license": "MIT"
+} 
+</code></pre>
+<h5><b>package.json sample code</b></h5><br />
             </li>
             <li>
                 <b>manifest.xml</b>
@@ -37,6 +59,7 @@
                         If you open the schema file, which is one level up in the tree, you will note that this is standard
                         introspection XML and defines some basic methods that a lamp might have, e.g. turning it on or off,
                         and setting its brightness.
+
                     </li>
                     <li>This file also defines the onboarding module for this translator. Onboarding is a generic term for any
                         setup, pairing, auth, etc. that you typically need to do before you can communicate with a device.
@@ -49,6 +72,21 @@
                         modules later, but for now just note that this is standard introspection XML, and the success signal
                         describes what information is passed into the translator as a result of onboarding. We have provided
                         some other sample onboarding modules and hope to add more with community participation.
+                        <pre><code>
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;manifest>
+    &lt;!-- associated voice handler --&gt;
+    &lt;voice id="org.OpenT2T.Voice.Cortana.Vcd.Sample.SuperPopular.LightControl" /&gt;
+    &lt;!-- associated schema --&gt;
+    &lt;schema id="org.OpenT2T.Sample.SuperPopular.Lamp" /&gt;
+    &lt;!-- associated onboarding module --&gt;
+    &lt;onboarding id="org.OpenT2T.Onboarding.Manual"&gt;
+        &lt;arg name="name" value="Test Light" /&gt;
+        &lt;arg name="instructionsUrl" value="http://example.com" /&gt;
+    &lt;/onboarding&gt;
+&lt;/manifest&gt;
+</code></pre>
+                        <h5><b>Test Light / manifest.xml sample code</b></h5><br />
                     </li>
                 </ul>
             </li>
@@ -58,6 +96,49 @@
                 method is special, and is called to initialize this translator with a device object that contains the results
                 of onboarding. Since we are using Manual onboarding for this translator, you will recall that there was a
                 token parameter that we can expect to exist in the props hash passed to initDevice, if onboarding was successful.
+                <pre><code>
+'use strict';
+// logs device state
+function logDeviceState(device) {
+    if (typeof (device) !== 'undefined') {
+        console.log('  device.name          : ' + device.name);
+        console.log('  device.props         : ' + device.props);
+    } else {
+        console.log('device is undefined');
+    }
+};
+// module exports, implementing the schema
+module.exports = {
+    
+    device: null,
+        <b>initDevice: function(dev) </b>{
+        this.device = dev;
+        console.log('Javascript initialized.');
+        logDeviceState(this.device);
+    },
+        <b>turnOn: function() </b>{
+        console.log('turnOn called.');
+    },
+        <b>turnOff: function() </b>{
+        console.log('turnOff called.');
+    },
+        <b>setBrightness: function(brightness) </b>{
+        console.log('setBrightness called with value: ' + brightness);
+    },
+        <b>disconnect: function() </b>{
+        console.log('disconnect called.');
+        logDeviceState(this.device);
+    }
+};
+// globals for JxCore host
+global.initDevice = module.exports.initDevice;
+global.turnOn = module.exports.turnOn;
+global.turnOff = module.exports.turnOff;
+global.setBrightness = module.exports.setBrightness;
+global.disconnect = module.exports.disconnect;
+ 
+</code></pre>
+                <h5><b>thingTranslator.js sample code</b></h5><br />
             </li>
         </ul>
         <p>
