@@ -45,18 +45,21 @@
             First, install Yeoman and generator-opent2t using npm. Both prefer a global install.
         </p>
 
-        <code>
-        $ npm install -g yo generator-opent2t 
-        </code>
+<pre><code>$ npm install -g yo generator-opent2t 
+</code></pre>
 
         <p>
             <br/>Next, just use the generator to start your new translator.
         </p>
 
-        <code>
-        $ yo opent2t 
-        </code>
-
+<pre><code>$ yo opent2t 
+</code></pre>
+        <div class="row" align="center">
+            <br />
+            <img src="assets/images/yoOpent2tGenerator.png" class="img-fluid getStarted-image" /><br />
+            <h5><b>Yeoman generator output</b></h5>
+            <br />
+        </div>
         <p>
             <br/>The generator will ask you some questions, and stub out some code based on your answers. You can read more about
             the generator, and look at the code, at https://github.com/openT2T/generator-opent2t.
@@ -76,17 +79,12 @@
                     we are trying to set up, so that it can filter down to light bulbs only. We do that by updating the generated
                     manifest to add the following parameters:
                 </p>
-                <blockquote>
-                    <p>
-                        &lt;onboarding id="org.OpenT2T.Onboarding.WinkHub"&gt;
-                        <br/> &nbsp;&nbsp;&nbsp;&ltarg name="name" value="Wink Light Bulb" /&gt;
-                        <br/> &nbsp;&nbsp;&nbsp;&lt!-- when Wink devices are enumerated, only devices that have this id key are
-                        shown --&gt;
-                        <br/> &nbsp;&nbsp;&nbsp;&ltarg name="idKeyFilter" value="light_bulb_id" /&gt;
-                        <br/> &lt;/onboarding&gt;
-                        <br/>
-                    </p>
-                </blockquote>
+                <pre><code>&lt;onboarding id="org.OpenT2T.Onboarding.WinkHub"&gt;
+    &lt;arg name="name" value="Wink Light Bulb" /&gt;
+    &lt;!-- when Wink devices are enumerated, only devices that have this id key are shown --&gt;
+    &lt;arg name="idKeyFilter" value="light_bulb_id" /&gt;
+&lt;/onboarding&gt;
+</code></pre>
                 <br/>
             </li>
 
