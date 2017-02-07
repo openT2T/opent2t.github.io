@@ -3,9 +3,9 @@
 Overview
 ========
 
-This document overviews the approach to ensuring that openT2T translators are high quality. There are multiple levels and stages for validation, including testing against mock things and real hardware. There are three quality levels and five steps in the overall quality flow. There are also different groups of people who have unique responsibilities, working together ensuring high quality translators.
+This document overviews the approach to ensuring that OpenT2T translators are high quality. There are multiple levels and stages for validation, including testing against mock things and real hardware. There are three quality levels and five steps in the overall quality flow. There are also different groups of people who have unique responsibilities, working together ensuring high quality translators.
 
-## OCF/Iotivity Opent2t Translator Committer Team
+## OCF/Iotivity OpenT2T Translator Committer Team
 Owners of the Translators and Onboarding Repos
 * Code Review and provide feedback to 3rd party developers
 * Merge Pull Requests
@@ -13,12 +13,12 @@ Owners of the Translators and Onboarding Repos
 * Work with Certification team to ensure correct steps to certify are followed
 * Consists of multiple companies, for example Microsoft, Intel, Samsung, etc
 
-## OCF/Iotivity Opent2t Certification Commiter Team
+## OCF/Iotivity OpenT2T Certification Commiter Team
 Owners of certification of the translators with real hardware
 * Follow the Certification flow process
 * Ensure hardware is setup appropriately, in real world configurations
 * Ensure Translators work with hardware
-* Ensure Translators work with OCF/Iotivity Opent2t reference applications
+* Ensure Translators work with OCF/Iotivity OpenT2T reference applications
 * There could be multiple certification teams, one per company. A translator needs to only be certified by one such team.
 
 
@@ -28,8 +28,8 @@ Terminology
   Term|Meaning|
   -------|:------|
   OCF/Iotivity|Open Connectivity Foundation|
-  Opent2t|Open Translators to Things|
-  Reference Application|A sample application which demonstrates how to use opent2t|
+  OpenT2T|Open Translators to Things|
+  Reference Application|A sample application which demonstrates how to use OpenT2T|
   Certification Flow|Process established which certifies a translator to be used by applications|
   Real World Configuration|A configuration which models a real world user setup|
   Device|The layer of OCF which represents abstract device concepts|
@@ -45,8 +45,8 @@ OCF/Iotivity Quality Levels
 
 Alpha|Beta|Release|
 -----|----|-------|
-|Code has been code reviewed and merged by OCF/Iotivity opent2t translator committer team|Complete thing validation in OCF/Iotivity opent2t lab by OCF/Iotivity opent2t certification team|X real users have used the translator using any app which uses OCF/Iotivity opent2t|
-Limited real thing validation by translator developer|Integration testing with OCF/Iotivity opent2t test apps in the OCF/Iotivity opent2t lab by OCF/Iotivity opent2t certification team|Observed error rates are <1% for the translator using any app which uses OCF/Iotivity opent2t|
+|Code has been code reviewed and merged by OCF/Iotivity OpenT2T translator committer team|Complete thing validation in OCF/Iotivity OpenT2T lab by OCF/Iotivity OpenT2T certification team|X real users have used the translator using any app which uses OCF/Iotivity OpenT2T|
+Limited real thing validation by translator developer|Integration testing with OCF/Iotivity OpenT2T test apps in the OCF/Iotivity OpenT2T lab by OCF/Iotivity OpenT2T certification team|Observed error rates are <1% for the translator using any app which uses OCF/Iotivity OpenT2T|
 
 
 
@@ -57,11 +57,11 @@ Owner|Actions|
 -----|-------|
 <h3>Translator Developer</h3>|<ul><li>Run linters, validate naming and schema locally</li><li>Run tests with thing</li><li>Submit PR</li></ul>|
 <h3>Automated Validation by Repo</h3>|<ul><li>Linters</li><li>Naming and Schema validation</li><li>Unit Tests</li></ul>|
-<h3>OCF/Iotivity opent2t translator committer team</h3>|<ul><li>Code review and Accept PR</li><li>Quick test against real thing (not always)</li><li>Publish package, add Translator to Alpha</li></ul>|
-<h3>OCF/Iotivity opent2t certification committer team</h3>|<ul><li>Deeper testing with real hardware</li><li>Integration tests with OCF/Iotivity opent2t reference apps</li><li>Sign off on translator and produce logs</li></ul>|
-<h3>OCF/Iotivity opent2t translator committer team</h3>|<ul><li>Verify Sign off and logs</li><li>Add Translator to Beta</li></ul>|
+<h3>OCF/Iotivity OpenT2T translator committer team</h3>|<ul><li>Code review and Accept PR</li><li>Quick test against real thing (not always)</li><li>Publish package, add Translator to Alpha</li></ul>|
+<h3>OCF/Iotivity OpenT2T certification committer team</h3>|<ul><li>Deeper testing with real hardware</li><li>Integration tests with OCF/Iotivity OpenT2T reference apps</li><li>Sign off on translator and produce logs</li></ul>|
+<h3>OCF/Iotivity OpenT2T translator committer team</h3>|<ul><li>Verify Sign off and logs</li><li>Add Translator to Beta</li></ul>|
 <h3>Real Users</h3>|<ul><li>Translator is run by Insiders/Beta Users</li><li>Errors and Usage is logged</li></ul>|
-<h3>OCF/Iotivity opent2t translator committer team</h3>|<ul><li>Monitor usage and errors</li><li>If some criteria, i.e. 99% success with >100 users, promotes to release</li></ul>|
+<h3>OCF/Iotivity OpenT2T translator committer team</h3>|<ul><li>Monitor usage and errors</li><li>If some criteria, i.e. 99% success with >100 users, promotes to release</li></ul>|
 
 
 
@@ -75,12 +75,12 @@ Security
 Sandbox
 -------
 
-We will require all translators have a whitelist of URLs they will be accessing to be included in their manifest.xml file. This set of URLs will be vetted by the OCF/Iotivity opent2t translator committer team. Translators will not be allowed to access any URLs which are not in their whitelist to ensure no data is being leaked.
+We will require all translators have a whitelist of URLs they will be accessing to be included in their manifest.xml file. This set of URLs will be vetted by the OCF/Iotivity OpenT2T translator committer team. Translators will not be allowed to access any URLs which are not in their whitelist to ensure no data is being leaked.
 
 Dependency Management
 ---------------------
 
-All dependencies of opent2t libraries need to be verified to ensure the entire chain is trusted and no package lower in the tree is doing something malicious. We will be verifying the set used by initial translators and then as needed per new translators. We may come up with a white list and ask developers to leverage the whitelist as much as possible.
+All dependencies of OpenT2T libraries need to be verified to ensure the entire chain is trusted and no package lower in the tree is doing something malicious. We will be verifying the set used by initial translators and then as needed per new translators. We may come up with a white list and ask developers to leverage the whitelist as much as possible.
 
 Concerns
 --------
@@ -165,7 +165,7 @@ validations:
 
 -   Validate manifest XML files conform to schema (XSD)
 
--   Validate opent2t metadata in package.json
+-   Validate OpenT2T metadata in package.json
 
 -   Validate dependencies in package.json (for interface/onboarding
     references to other packages)
@@ -200,7 +200,7 @@ Tests in our translators repo will support the following:
 
     -   Required to run against a thing with a flag
 
--   **Opent2t Integration tests**
+-   **OpenT2T Integration tests**
 
     -   Required to run against a thing by default
 
@@ -233,7 +233,7 @@ Tests in our translators repo will support the following:
 7.  Code reviewers will need to ensure that new tests have been created
     as necessary.
 
-**Opent2t Integration test guidelines:**
+**OpenT2T Integration test guidelines:**
 
 1.  As stated above we will require integration tests. Since these will
     not be run as part of CI we will rely on our developers to run tests
@@ -280,22 +280,22 @@ Here are some guidelines for running tests manually:
 Open Telemetry
 ====================
 
-All translators will be run through the OCF/Iotivity opent2t library
+All translators will be run through the OCF/Iotivity OpenT2T library
 which will be instrumented to provide open telemetry and will allow us
 to identify issues and to help us understand when a translator has met
 the criteria necessary to be released. We have not yet determined which
 telemetry tools/frameworks we will use or what the promotion criteria
 will be.
 
-Telemetry will be surfaced on an OCF/Iotivity opent2t open dashboard
+Telemetry will be surfaced on an OCF/Iotivity OpenT2T open dashboard
 which shows usage for each individual translators, success/error rates
 and latency of request/responses. This will allow all consumers of
-opent2t to view usage of various translators and gain confidence in the
+OpenT2T to view usage of various translators and gain confidence in the
 project. The dashboard should provide usage of translators at all three
 quality levels and how close it is to being ready for promotion.
 
 Privacy needs to be maintained and no information about which consumer
-of opent2t is using which translators and how much. For example, open
+of OpenT2T is using which translators and how much. For example, open
 telemetry will not collect:
 
 -   Any information which can identify a person: location, username,
@@ -309,9 +309,9 @@ For Example:<br/>
 3rd Party Service Availability
 ================================
 
-Opent2t relies on translators connecting to 3rd party cloud services.
+OpenT2T relies on translators connecting to 3rd party cloud services.
 It is inevitable that the availability of these services will be
-fluctuate. Opent2t will have an availability site which shows
+fluctuate. OpenT2T will have an availability site which shows
 availability and a 7-day history. 3rd party services will be checked
 every 5 minutes, if a service is down we will check every minute to see
 if it comes back up.
