@@ -55,13 +55,13 @@ Translator Flow
 
 Owner|Actions|
 -----|-------|
-<h2>Translator Developer</h2>|<ul><li>Run linters, validate naming and schema locally</li><li>Run tests with thing</li><li>Submit PR</li></ul>|
-<h2>Automated Validation by Repo</h2>|<ul><li>Linters</li><li>Naming and Schema validation</li><li>Unit Tests</li></ul>|
-<h2>OCF/Iotivity opent2t translator committer team</h2>|<ul><li>Code review and Accept PR</li><li>Quick test against real thing (not always)</li><li>Publish package, add Translator to Alpha</li></ul>|
-<h2>OCF/Iotivity opent2t certification committer team</h2>|<ul><li>Deeper testing with real hardware</li><li>Integration tests with OCF/Iotivity opent2t reference apps</li><li>Sign off on translator and produce logs</li></ul>|
-<h2>OCF/Iotivity opent2t translator committer team</h2>|<ul><li>Verify Sign off and logs</li><li>Add Translator to Beta</li></ul>|
-<h2>Real Users</h2>|<ul><li>Translator is run by Insiders/Beta Users</li><li>Errors and Usage is logged</li></ul>|
-<h2>OCF/Iotivity opent2t translator committer team</h2>|<ul><li>Monitor usage and errors</li><li>If some criteria, i.e. 99% success with >100 users, promotes to release</li></ul>|
+<h3>Translator Developer</h3>|<ul><li>Run linters, validate naming and schema locally</li><li>Run tests with thing</li><li>Submit PR</li></ul>|
+<h3>Automated Validation by Repo</h3>|<ul><li>Linters</li><li>Naming and Schema validation</li><li>Unit Tests</li></ul>|
+<h3>OCF/Iotivity opent2t translator committer team</h3>|<ul><li>Code review and Accept PR</li><li>Quick test against real thing (not always)</li><li>Publish package, add Translator to Alpha</li></ul>|
+<h3>OCF/Iotivity opent2t certification committer team</h3>|<ul><li>Deeper testing with real hardware</li><li>Integration tests with OCF/Iotivity opent2t reference apps</li><li>Sign off on translator and produce logs</li></ul>|
+<h3>OCF/Iotivity opent2t translator committer team</h3>|<ul><li>Verify Sign off and logs</li><li>Add Translator to Beta</li></ul>|
+<h3>Real Users</h3>|<ul><li>Translator is run by Insiders/Beta Users</li><li>Errors and Usage is logged</li></ul>|
+<h3>OCF/Iotivity opent2t translator committer team</h3>|<ul><li>Monitor usage and errors</li><li>If some criteria, i.e. 99% success with >100 users, promotes to release</li></ul>|
 
 
 
